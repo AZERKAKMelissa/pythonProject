@@ -36,7 +36,7 @@ def recupere_données_livres(url):
     image_url = soup.find_all('img')[0]
     imurl = str(image_url)
 #todo : compléter le dictionnaire
-    data = {"titre": title, "category": category}
+    data = {"titre": title, "price_including_tax": price_including_tax, "price_excluding_tax": price_excluding_tax, "number_available": number_available, "product_description_titre": product_description_titre, "product_description": product_description, "category": category, "review_rating": review_rating, "image_url": image_url }
     return data
 
     #product_page_url = url
@@ -68,8 +68,10 @@ if __name__ == '__main__':
     #données = recupere_données_livres(url)
     #données_des_livres.append(données)
 
+
     urls_livres = ["http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html",
-                   "https://books.toscrape.com/catalogue/set-me-free_988/index.html"]
+                   "https://books.toscrape.com/catalogue/set-me-free_988/index.html",
+                   "https://books.toscrape.com/catalogue/the-natural-history-of-us-the-fine-art-of-pretending-2_941/index.html"]
     données_des_livres = []
     for url in urls_livres:
         données = recupere_données_livres(url)
